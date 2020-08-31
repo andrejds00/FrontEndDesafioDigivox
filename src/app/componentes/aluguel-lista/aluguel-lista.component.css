@@ -1,0 +1,38 @@
+.header-card {
+    text-align: center;
+    margin-right: 0;
+}
+.header-card2 {
+    text-align: center;
+    margin-left: 0;
+}
+.espaco-card{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.tamanhocarro {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    position: relative;
+    margin: auto;
+}
+.ATIVO {
+    background-color: #c8e6c9;
+    border-radius: 8%;
+    color:#256029; 
+    text-align: center;
+   font-weight: bold;      
+   padding: 3px;
+}
+
+.DEVOLVIDO {
+  background-color: #ffcdd2;
+  border-radius: 8%;
+  color:#ca3737; 
+  text-align: center;
+ font-weight: bold;      
+ padding: 3px;
+}

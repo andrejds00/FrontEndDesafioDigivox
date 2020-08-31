@@ -1,0 +1,27 @@
+<h1 class="mt-4">Cadastrar Tipo Item</h1>
+ <ol class="breadcrumb mb-4">
+     <li class="breadcrumb-item active">Cadastro / Atualização</li>
+ </ol>
+ <div class="p-grid p-fluid p-formgrid">
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Código</label>
+            <input  type="text" pInputText disabled="true" [(ngModel)]="tipoItem.id" name="id"> 
+        </div>
+    </div>    
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >Descrição</label>
+            <input  type="text" pInputText [(ngModel)]="tipoItem.descricao" name="descricao"> 
+        </div>
+    </div>
+     
+
+</div>
+<div class="posicaoButton">
+    <button pButton pRipple type="button" label="{{statusBotao}}" class="p-button-rounded" (click)="cadastrarTipoItem()"></button>
+</div>
+
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>

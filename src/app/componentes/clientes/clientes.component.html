@@ -1,0 +1,46 @@
+<h1 class="mt-4">Clientes Cadastrados</h1>
+ <ol class="breadcrumb mb-4">
+    <p-button icon="fa fa-plus" label="Novo Cliente" routerLink="/clientes-cadastro"></p-button>     
+ </ol>
+<p-table #dt [value]="clientes" [paginator]="true" [rows]="20" [autoLayout]="true">    
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Cadastro</th>
+            <th>Ações</th>
+        </tr>
+        <tr>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'id', 'contains')" placeholder="Filtrar por Código" class="p-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'nome', 'contains')" placeholder="Filtrar por Nome" class="p-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'cpf', 'contains')" placeholder="Filtrar por CPF" class="p-column-filter">
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>    
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+        <tr>
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf}}</td>
+            <td>{{cliente.dataCadastro}}</td>
+            <td><button pButton pRipple type="button" icon="fa fa-pencil-alt" class="p-button-rounded p-button-info" routerLink="/clientes-cadastro/{{ cliente.id }}"></button>
+                <button pButton pRipple type="button" icon="fa fa-trash-alt" class="p-button-rounded p-button-danger ml-2" (click)="deletarCliente(cliente)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>
+
+<p-confirmDialog header="Confirmation" key="deletarCliente" icon="pi pi-exclamation-triangle"></p-confirmDialog>

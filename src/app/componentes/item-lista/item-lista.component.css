@@ -1,0 +1,18 @@
+
+.DISPONÍVEL {
+    background-color: #c8e6c9;
+    border-radius: 8%;
+    color:#256029; 
+    text-align: center;
+   font-weight: bold;      
+   padding: 3px;
+}
+
+.RESERVADO {
+  background-color: #ffcdd2;
+  border-radius: 8%;
+  color:#ca3737; 
+  text-align: center;
+ font-weight: bold;      
+ padding: 3px;
+}

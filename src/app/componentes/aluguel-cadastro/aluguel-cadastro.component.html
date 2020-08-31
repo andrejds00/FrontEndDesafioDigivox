@@ -1,0 +1,54 @@
+<h1 class="mt-4">Contrato Aluguel</h1>
+ <ol class="breadcrumb mb-4">
+     <li class="breadcrumb-item active">Cadastro / Atualização</li>
+ </ol>
+ <div class="p-grid p-fluid p-formgrid">
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Código</label>
+            <input  type="text" pInputText disabled="true" [(ngModel)]="aluguel.id" name="id"> 
+        </div>
+    </div>
+    <div class="p-col-12">
+        <div class="p-field p-col" >
+            <label >Clientes</label>
+            <p-listbox [options]="clientes" [(ngModel)]="clienteSelecionado" optionLabel="nome" [style]="{'width':'100%'}" [listStyle]="{'max-height':'80px'}" [filter]="true"></p-listbox>
+        </div>
+    </div>  
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Item</label>
+            <p-listbox [options]="itens" [(ngModel)]="itemSelecionado" optionLabel="descricao" [style]="{'width':'30rem'}" [listStyle]="{'max-height':'80px'}" [filter]="true"></p-listbox>
+        </div>
+    </div>   
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >Data Contrato</label>
+            <p-calendar [(ngModel)]="aluguel.dataAluguel" dateFormat="dd/mm/yy" ></p-calendar>
+        </div>
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >Data Previsão Devolução</label>
+            <p-calendar [(ngModel)]="aluguel.dataDevolucao" dateFormat="dd/mm/yy" ></p-calendar>
+        </div>
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Observação</label>
+            <input  type="text" pInputText [(ngModel)]="aluguel.observacao" name="observacao"> 
+        </div>
+    </div>    
+   
+    
+   
+     
+
+</div>
+<div class="mb-2">
+    <button pButton pRipple type="button" label="Cadastrar" class="p-button-rounded" (click)="salvarAluguel()"></button>
+</div>
+
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>

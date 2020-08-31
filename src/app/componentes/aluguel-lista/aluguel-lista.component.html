@@ -1,0 +1,67 @@
+<h1 class="mt-4">Movimentação Aluguel</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">
+        <p-button class="mr-2" icon="pi pi-folder-open" label="Contratos Ativos" (click)="buscarAlugueisAtivos()"></p-button>
+        <p-button class="ml-2" icon="pi pi-folder" label="Contratos Devolvidos" (click)="buscarAlugueisDevolvidos()"></p-button>
+    </li>
+</ol>
+<p-dataView #dv [value]="alugueis" [paginator]="true" [rows]="9">
+    <ng-template let-aluguel pTemplate="listItem">
+        <div class="card">
+            <div class="p-grid espaco-card">
+                <p-card class="p-shadow-6" [style]="{width: '320px'}" styleClass="p-card-shadow">
+                    <p-header>
+                        <h4>Código: {{aluguel.id}}</h4>
+                        <div class="p-grid p-dir-rev">
+                            <div class="p-col header-card">
+                                <span [class]="aluguel.status">{{aluguel.status}}</span>
+                                
+                            </div>
+                            <div class="p-col header-card2">
+                                <i class="fa fa-car"></i> {{aluguel.item.tipoItem.descricao}}
+                            </div>
+                        </div>
+                        <div class="tamanhocarro">
+                        <img  alt="Card" src="assets/car.png">
+                    </div>
+                    </p-header>
+                    <div class="p-text-center">
+                        <h4>{{aluguel.item.descricao}}</h4>
+                    </div>
+                    <div class="p-text-center">
+                        <h5>{{aluguel.item.valor | currency:'R$'}}</h5>
+                    </div>
+                    <div class="p-grid p-dir-rev">
+                        <div class="p-col header-card">
+                            <label>Data da Devolução</label>
+                            <br>
+                            <i class="fa fa-arrow-alt-circle-down"></i> {{aluguel.dataDevolucao}}
+                        </div>
+                        <div class="p-col header-card2">
+                            <label>Data do Aluguel</label>
+                        <br>
+                            <i class="fa fa-arrow-alt-circle-up"></i> {{aluguel.dataAluguel}}
+                        </div>
+                    </div>
+                    <ng-template pTemplate="footer">
+                        <p-button (click)="showModalDialog(aluguel)" icon="pi pi-external-link" label="Devolução"></p-button>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </ng-template>
+
+</p-dataView>
+
+
+<p-dialog header="Devolução do Veiculo" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <p class="p-m-0">Verifique se o veiculo está todo regular e prossiga.</p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="confirmarDevolucao()" label="Confirmar" class="p-button-text"></p-button>
+            <p-button icon="pi pi-times" (click)="displayModal=false" label="Cancelar"></p-button>
+        </ng-template>
+</p-dialog>
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>

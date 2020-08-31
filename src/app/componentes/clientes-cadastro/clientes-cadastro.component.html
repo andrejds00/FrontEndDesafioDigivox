@@ -1,0 +1,39 @@
+<h1 class="mt-4">{{cliente.nome ? cliente.nome : 'Cadastro de Clientes'}}</h1>
+ <ol class="breadcrumb mb-4">
+     <li class="breadcrumb-item active">Cadastro / Atualização</li>
+ </ol>
+ <div class="p-grid p-fluid p-formgrid">
+    <div class="p-col-6">
+        <div class="p-field p-col" *ngIf="cliente.id">
+            <label >Código</label>
+            <input  type="text" pInputText disabled="true" [(ngModel)]="cliente.id" name="id"> 
+        </div>
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col" *ngIf="cliente.id">
+            <label >Data Cadastro</label>
+            <input  type="text" pInputText disabled="true" [(ngModel)]="cliente.dataCadastro" name="dataCadastro"> 
+        </div>
+    </div>    
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >Nome</label>
+            <input  type="text" pInputText [(ngModel)]="cliente.nome" name="nome"> 
+        </div>
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >CPF</label>
+            <input  type="text" pInputText [(ngModel)]="cliente.cpf" name="cpf"> 
+        </div>
+    </div> 
+     
+
+</div>
+<div class="posicaoButton">
+    <button pButton pRipple type="button" label="{{statusBotao}}" class="p-button-rounded" (click)="cadastrarClientes()"></button>
+</div>
+
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>

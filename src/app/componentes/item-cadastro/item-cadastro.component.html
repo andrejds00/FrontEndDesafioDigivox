@@ -1,0 +1,44 @@
+<h1 class="mt-4">{{item.descricao ? item.descricao : 'Cadastro de Itens'}}</h1>
+ <ol class="breadcrumb mb-4">
+     <li class="breadcrumb-item active">Cadastro / Atualização</li>
+ </ol>
+ <div class="p-grid p-fluid p-formgrid">
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Código</label>
+            <input  type="text" pInputText disabled="true" [(ngModel)]="item.id" name="id"> 
+        </div>
+    </div>
+    <div class="p-col-6">
+
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col">
+            <label >Descrição</label>
+            <input  type="text" pInputText [(ngModel)]="item.descricao" name="descricao"> 
+        </div>
+    </div>
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Valor</label>
+            <input  type="text" pInputText [(ngModel)]="item.valor" name="valor"> 
+        </div>
+    </div>    
+    <div class="p-col-6">
+        <div class="p-field p-col" >
+            <label >Tipo</label>
+            <p-listbox [options]="tipos" [(ngModel)]="tipoSelecionado" optionLabel="descricao" [style]="{'width':'20rem'}" [listStyle]="{'max-height':'80px'}" [filter]="true"></p-listbox>
+        </div>
+    </div>   
+    
+   
+     
+
+</div>
+<div class="posicaoButton">
+    <button pButton pRipple type="button" label="{{statusBotao}}" class="p-button-rounded" (click)="cadastrarItem()"></button>
+</div>
+
+
+<!--Toast Sucesso-->
+<p-toast position="bottom-center"></p-toast>
